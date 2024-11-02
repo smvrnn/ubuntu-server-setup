@@ -3,6 +3,7 @@ services:
     container_name: nginx
     image: nginx:1.27.2
     volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
       - ./conf.d:/etc/nginx/conf.d
       - ./sites-available:/etc/nginx/sites-available
       - ./sites-enabled:/etc/nginx/sites-enabled
