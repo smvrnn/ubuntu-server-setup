@@ -1,0 +1,12 @@
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.27.2
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./sites-available:/etc/nginx/sites-available
+      - ./sites-enabled:/etc/nginx/sites-enabled
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
