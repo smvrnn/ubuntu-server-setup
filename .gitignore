@@ -1,7 +1,7 @@
 mongo/data/*
 
-nginx/sites-available/*.conf
-nginx/sites-enabled/*.conf
+nginx/nginx/sites-available/*.conf
+nginx/nginx/sites-enabled/*.conf
 certbot/certbot/*
 **.env
 **.sh
