@@ -11,6 +11,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - ./data:/data/db
+      - ./mongod.conf:/etc/mongod.conf
     networks:
       - solutionary-network
 
