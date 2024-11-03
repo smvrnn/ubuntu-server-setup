@@ -1,6 +1,9 @@
 mongo/data/*
-!.gitkeep
 
 nginx/sites-available/*.conf
 nginx/sites-enabled/*.conf
-.env
+certbot/certbot/*
+**.env
+**.sh
+
+!.gitkeep
