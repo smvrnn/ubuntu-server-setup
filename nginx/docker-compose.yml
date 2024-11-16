@@ -15,7 +15,7 @@ services:
     restart: always
     command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
     networks:
-      - solutionary-network
+      - solutionary
 
   certbot:
     image: certbot/certbot:v2.11.0
@@ -26,8 +26,8 @@ services:
       - ./certbot/lib/letsencrypt:/var/lib/letsencrypt
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     networks:
-      - solutionary-network
+      - solutionary
 
 networks:
-  solutionary-network:
+  solutionary:
     external: true

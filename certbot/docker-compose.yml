@@ -12,5 +12,5 @@ services:
       - solutionary-network
 
 networks:
-  solutionary-network:
+  solutionary:
     external: true

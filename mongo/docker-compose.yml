@@ -6,19 +6,20 @@ services:
     ports:
       - "27017:27017"
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    env_file:
+      - ./.env
     volumes:
-      - ./data:/data/db
+      - type: volume
+        source: mongo
+        target: /data/db
       - ./mongod.conf:/etc/mongod.conf
     networks:
-      - solutionary-network
+      - solutionary
+
+volumes:
+  mongo:
+    name: mongo
 
 networks:
-  solutionary-network:
+  solutionary:
     external: true
-# networks:
-#   solutionary-network:
-#     name: solutionary-network
-#     driver: bridge
