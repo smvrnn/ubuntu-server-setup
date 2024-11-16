@@ -1,9 +1,5 @@
-mongo/data/*
-
-nginx/nginx/sites-available/*.conf
-nginx/nginx/sites-enabled/*.conf
-certbot/certbot/*
 **.env
-**.sh
+**.conf
 
 !.gitkeep
+!example_server.conf
