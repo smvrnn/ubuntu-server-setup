@@ -1,0 +1,40 @@
+name: killbill
+
+services:
+  killbill:
+    image: killbill/killbill:0.24.10
+    container_name: killbill
+    networks:
+      - solutionary
+    ports:
+      - "5050:8080"
+    volumes:
+      - ./shiro.ini:/var/lib/killbill/shiro.ini
+    env_file: .env
+  kaui:
+    image: killbill/kaui:3.0.9
+    container_name: kaui
+    networks:
+      - solutionary
+    ports:
+      - "5055:8080"
+    env_file: .env
+  db:
+    image: killbill/mariadb:0.24
+    container_name: mariadb
+    networks:
+      - solutionary
+    volumes:
+      - type: volume
+        source: killbill
+        target: /var/lib/mysql
+    expose:
+      - "3306"
+    env_file: .env
+
+volumes:
+  killbill:
+    name: killbill
+networks:
+  solutionary:
+    external: true

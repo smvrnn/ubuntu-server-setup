@@ -1,5 +1,5 @@
 **.env
 **.conf
-
+**.ini
 !.gitkeep
 !example_server.conf
