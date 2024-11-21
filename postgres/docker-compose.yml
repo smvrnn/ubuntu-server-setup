@@ -1,0 +1,24 @@
+services:
+
+  postgres:
+    image: postgres:17.1
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - type: volume
+        source: postgres
+        target: /data/postgres
+    networks:
+      - solutionary
+
+volumes:
+  postgres:
+    name: postgres
+
+networks:
+  solutionary:
+    external: true
