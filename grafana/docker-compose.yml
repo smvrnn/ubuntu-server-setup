@@ -1,0 +1,24 @@
+name: grafana
+
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+      - GF_SERVER_ROOT_URL=http://grafana:3000/grafana
+      - GF_SERVER_SERVE_FROM_SUB_PATH=TRUE
+      - GF_SERVER_DOMAIN=https://de.solutionary.me
+    ports:
+      - 4000:3000
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - solutionary
+
+volumes:
+  grafana-storage:
+    name: grafana-storage
+networks:
+  solutionary:
+    external: true
