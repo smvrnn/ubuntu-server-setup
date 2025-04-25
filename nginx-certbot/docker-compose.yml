@@ -18,6 +18,7 @@ services:
       - nginx_secrets:/etc/letsencrypt          # Docker managed volume (see list at the bottom)
       - ./user_conf.d:/etc/nginx/user_conf.d    # or a host mount with a relative or full path.
       - ./cloudflare.ini:/etc/letsencrypt/cloudflare.ini
+      - ./html:/usr/share/nginx/html:ro
 
 volumes:
   nginx_secrets:
